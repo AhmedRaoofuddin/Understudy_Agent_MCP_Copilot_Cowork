@@ -15,7 +15,7 @@
 
 </div>
 
-![The Understudy Loop](docs/understudy_loop.svg)
+![Understudy, from team to earned autonomy across the Copilot workflow](docs/hero.png)
 
 > An understudy watches the lead, learns the role, and only goes on alone once they have earned it. Understudy does that for an AI agent. It watches how your team works, learns the playbook, and lets the agent act by itself only after it has repeatedly matched your team's judgment. The first time an autonomous action goes wrong, it pulls the agent straight back to asking a human.
 
@@ -30,6 +30,8 @@ Understudy is the missing middle.
 ## How it thinks: the Understudy Loop
 
 Plain prompting is a single shot. Understudy runs a *loop*, the way the builders of Copilot Cowork, Claude Code, and OpenClaw all argue modern agents should. Our loop takes the ReAct pattern of thought, action, and observation and adds the two things ReAct never had: a **deterministic trust gate** and a **learning step**. It is a chain of loops, not a chain of prompts.
+
+![The Understudy Loop](docs/understudy_loop.svg)
 
 1. **Recall** the learned playbook for this task class.
 2. **Reason** through a ReAct trace to a concrete proposal. *This is where chain of thought lives.*
