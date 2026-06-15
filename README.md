@@ -8,7 +8,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)
-![tests](https://img.shields.io/badge/tests-36%20passing-2ea44f?logo=pytest&logoColor=white)
+![tests](https://img.shields.io/badge/tests-45%20passing-2ea44f?logo=pytest&logoColor=white)
 ![core deps](https://img.shields.io/badge/core%20deps-zero-2ea44f)
 ![protocol](https://img.shields.io/badge/protocol-MCP-7c3aed)
 ![status](https://img.shields.io/badge/status-working%20prototype-f59e0b)
@@ -31,7 +31,7 @@ Understudy is the missing middle.
 
 Plain prompting is a single shot. Understudy runs a *loop*, the way the builders of Copilot Cowork, Claude Code, and OpenClaw all argue modern agents should. Our loop takes the ReAct pattern of thought, action, and observation and adds the two things ReAct never had: a **deterministic trust gate** and a **learning step**. It is a chain of loops, not a chain of prompts.
 
-![The Understudy Loop](docs/understudy_loop.svg)
+![The Understudy Loop](docs/understudy_loop.png)
 
 1. **Recall** the learned playbook for this task class.
 2. **Reason** through a ReAct trace to a concrete proposal. *This is where chain of thought lives.*
