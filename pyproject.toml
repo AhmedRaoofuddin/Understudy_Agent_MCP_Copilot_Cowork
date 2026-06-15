@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "understudy"
+version = "0.1.0"
+description = "An earned autonomy trust gate for AI agents, delivered as an MCP server for Copilot Cowork and Copilot."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ahmed Raoofuddin" }]
+keywords = ["mcp", "copilot", "cowork", "agents", "autonomy", "trust", "langgraph", "react"]
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.2.0"]
+api = ["fastapi>=0.110.0", "uvicorn>=0.28.0", "pydantic>=2.6.0"]
+models = ["anthropic>=0.40.0"]
+graph = ["langgraph>=0.2.0"]
+all = [
+    "mcp>=1.2.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "pydantic>=2.6.0",
+    "anthropic>=0.40.0",
+    "langgraph>=0.2.0",
+]
+
+[project.scripts]
+understudy = "cli:main"
+
+[project.urls]
+Homepage = "https://github.com/AhmedRaoofuddin/Understudy_Agent_MCP_Copilot_Cowork"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["core", "crew", "crew.agents", "mcp_server", "api", "integrations", "packaging", "simulations"]

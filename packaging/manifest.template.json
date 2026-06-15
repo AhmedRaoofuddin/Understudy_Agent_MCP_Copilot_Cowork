@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.19",
+  "id": "REPLACE_WITH_YOUR_APP_GUID",
+  "version": "0.1.0",
+  "packageName": "ai.understudy.trustgate",
+  "name": {
+    "short": "Understudy",
+    "full": "Understudy trust gate"
+  },
+  "developer": {
+    "name": "Ahmed Raoofuddin",
+    "websiteUrl": "https://github.com/AhmedRaoofuddin/Understudy_Agent_MCP_Copilot_Cowork",
+    "privacyUrl": "https://github.com/AhmedRaoofuddin/Understudy_Agent_MCP_Copilot_Cowork",
+    "termsOfUseUrl": "https://github.com/AhmedRaoofuddin/Understudy_Agent_MCP_Copilot_Cowork"
+  },
+  "description": {
+    "short": "Earned autonomy trust gate for AI agents.",
+    "full": "Understudy lets Copilot and Cowork agents earn autonomy through a deterministic trust gate exposed over the Model Context Protocol."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#2563EB",
+  "mcpServers": [
+    {
+      "name": "understudy",
+      "transport": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_server.server"]
+    }
+  ],
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": []
+}

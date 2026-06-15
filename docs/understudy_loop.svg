@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 660" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060a16"/>
+      <stop offset="0.55" stop-color="#0a1228"/>
+      <stop offset="1" stop-color="#0e1a38"/>
+    </linearGradient>
+    <radialGradient id="nebTeal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebViolet" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebAmber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="0.4" stop-color="#3b82f6"/>
+      <stop offset="0.72" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#243a6b" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0f1a36" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="gateGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#065f46"/>
+    </linearGradient>
+    <linearGradient id="outGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="device" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16223f"/><stop offset="1" stop-color="#0a1126"/>
+    </linearGradient>
+    <linearGradient id="orb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="ribbonBlur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 z" fill="#7ef0dc"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1120" height="660" rx="18" fill="url(#bg)"/>
+  <ellipse cx="240" cy="250" rx="430" ry="280" fill="url(#nebTeal)" opacity="0.13"/>
+  <ellipse cx="720" cy="300" rx="420" ry="260" fill="url(#nebViolet)" opacity="0.12"/>
+  <ellipse cx="1010" cy="360" rx="300" ry="220" fill="url(#nebAmber)" opacity="0.12"/>
+
+  <text x="560" y="56" text-anchor="middle" font-size="34" font-weight="700" letter-spacing="3" fill="#eaf2ff" filter="url(#soft)">THE UNDERSTUDY LOOP</text>
+  <rect x="438" y="68" width="244" height="3" rx="2" fill="url(#ribbon)" filter="url(#glow)"/>
+  <text x="560" y="96" text-anchor="middle" font-size="14.5" fill="#9fb3d6">Watched, then trusted. Agents earn autonomy the way people do, through a deterministic gate and a learning loop.</text>
+
+  <g>
+    <g transform="translate(388,124)">
+      <ellipse cx="11" cy="0" rx="11" ry="4.6" fill="#2dd4bf" transform="rotate(0 0 0)"/>
+      <ellipse cx="11" cy="0" rx="11" ry="4.6" fill="#3b82f6" transform="rotate(90 0 0)"/>
+      <ellipse cx="11" cy="0" rx="11" ry="4.6" fill="#8b5cf6" transform="rotate(180 0 0)"/>
+      <ellipse cx="11" cy="0" rx="11" ry="4.6" fill="#f59e0b" transform="rotate(270 0 0)"/>
+    </g>
+    <text x="416" y="130" font-size="14" font-weight="600" fill="#dbe7ff">Built for Microsoft Copilot Cowork, Copilot, and CRM agents</text>
+  </g>
+
+  <!-- the flowing ribbon of work -->
+  <path d="M120 470 C 360 470 470 360 700 340 S 1000 320 1090 318" fill="none" stroke="url(#ribbon)" stroke-width="120" stroke-linecap="round" opacity="0.22" filter="url(#ribbonBlur)"/>
+  <path d="M120 470 C 360 470 470 360 700 340 S 1000 320 1090 318" fill="none" stroke="url(#ribbon)" stroke-width="40" stroke-linecap="round" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- the team, illustrated -->
+  <ellipse cx="108" cy="392" rx="86" ry="62" fill="#101c3a" opacity="0.75" stroke="#2dd4bf" stroke-opacity="0.35"/>
+  <g>
+    <circle cx="80" cy="372" r="11" fill="#2dd4bf"/><path d="M62 408 a18 22 0 0 1 36 0 z" fill="#2dd4bf" opacity="0.85"/>
+    <circle cx="112" cy="364" r="12" fill="#3b82f6"/><path d="M92 404 a20 24 0 0 1 40 0 z" fill="#3b82f6" opacity="0.85"/>
+    <circle cx="144" cy="376" r="11" fill="#8b5cf6"/><path d="M126 410 a18 22 0 0 1 36 0 z" fill="#8b5cf6" opacity="0.85"/>
+  </g>
+  <text x="108" y="470" text-anchor="middle" font-size="12.5" fill="#bcd0f2" font-weight="600">the team</text>
+  <text x="108" y="486" text-anchor="middle" font-size="10.5" fill="#7f97bd">demonstrations and decisions</text>
+
+  <!-- floating work icons -->
+  <g opacity="0.8">
+    <g transform="translate(300 250)"><rect width="26" height="18" rx="3" fill="#16223f" stroke="#3b82f6" stroke-opacity="0.6"/><path d="M2 3 L13 11 L24 3" fill="none" stroke="#7aa6ef" stroke-width="1.4"/></g>
+    <g transform="translate(560 232)"><rect width="24" height="22" rx="3" fill="#16223f" stroke="#8b5cf6" stroke-opacity="0.6"/><rect x="0" y="0" width="24" height="6" rx="3" fill="#8b5cf6" opacity="0.5"/><circle cx="7" cy="14" r="2" fill="#b79bf3"/><circle cx="15" cy="14" r="2" fill="#b79bf3"/></g>
+    <g transform="translate(820 226)"><rect width="20" height="24" rx="3" fill="#16223f" stroke="#2dd4bf" stroke-opacity="0.6"/><line x1="4" y1="7" x2="16" y2="7" stroke="#6ee7d6" stroke-width="1.3"/><line x1="4" y1="12" x2="16" y2="12" stroke="#6ee7d6" stroke-width="1.3"/><line x1="4" y1="17" x2="12" y2="17" stroke="#6ee7d6" stroke-width="1.3"/></g>
+  </g>
+
+  <!-- stage panels along the ribbon -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <!-- 1 Recall -->
+    <g filter="url(#soft)"><rect x="205" y="348" width="112" height="86" rx="13" fill="url(#glass)" stroke="#4f6fb0" stroke-opacity="0.55"/><rect x="205" y="348" width="112" height="3" rx="2" fill="#5eead4" opacity="0.6"/></g>
+    <circle cx="225" cy="368" r="10" fill="#2dd4bf"/><text x="225" y="372" text-anchor="middle" font-size="10" font-weight="700" fill="#04201c">1</text>
+    <text x="261" y="392" text-anchor="middle" font-size="13" font-weight="600" fill="#eaf2ff">Recall</text>
+    <text x="261" y="412" text-anchor="middle" font-size="10" fill="#90a6cb">load the playbook</text>
+
+    <!-- 2 Reason -->
+    <g filter="url(#soft)"><rect x="338" y="330" width="112" height="86" rx="13" fill="url(#glass)" stroke="#4f6fb0" stroke-opacity="0.55"/><rect x="338" y="330" width="112" height="3" rx="2" fill="#7aa6ef" opacity="0.6"/></g>
+    <circle cx="358" cy="350" r="10" fill="#3b82f6"/><text x="358" y="354" text-anchor="middle" font-size="10" font-weight="700" fill="#02122e">2</text>
+    <text x="394" y="374" text-anchor="middle" font-size="13" font-weight="600" fill="#eaf2ff">Reason</text>
+    <text x="394" y="394" text-anchor="middle" font-size="10" fill="#90a6cb">ReAct proposal</text>
+
+    <!-- 3 Appraise, the gate -->
+    <g filter="url(#glow)"><rect x="471" y="300" width="124" height="100" rx="14" fill="url(#gateGlass)" stroke="#9af3cf" stroke-width="1.4"/><rect x="471" y="300" width="124" height="3" rx="2" fill="#d1fae5"/></g>
+    <circle cx="493" cy="322" r="10" fill="#ffffff"/><text x="493" y="326" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">3</text>
+    <text x="533" y="346" text-anchor="middle" font-size="13" font-weight="700" fill="#04241b">Appraise</text>
+    <text x="533" y="366" text-anchor="middle" font-size="10" fill="#04241b">trust gate</text>
+    <text x="533" y="382" text-anchor="middle" font-size="9.5" font-weight="700" fill="#04241b">DETERMINISTIC</text>
+
+    <!-- 4 Act or Defer -->
+    <g filter="url(#soft)"><rect x="616" y="306" width="112" height="86" rx="13" fill="url(#glass)" stroke="#4f6fb0" stroke-opacity="0.55"/><rect x="616" y="306" width="112" height="3" rx="2" fill="#7aa6ef" opacity="0.6"/></g>
+    <circle cx="636" cy="326" r="10" fill="#3b82f6"/><text x="636" y="330" text-anchor="middle" font-size="10" font-weight="700" fill="#02122e">4</text>
+    <text x="672" y="350" text-anchor="middle" font-size="12.5" font-weight="600" fill="#eaf2ff">Act or Defer</text>
+    <text x="672" y="370" text-anchor="middle" font-size="10" fill="#90a6cb">run, or ask</text>
+
+    <!-- 5 Observe -->
+    <g filter="url(#soft)"><rect x="744" y="298" width="112" height="86" rx="13" fill="url(#glass)" stroke="#4f6fb0" stroke-opacity="0.55"/><rect x="744" y="298" width="112" height="3" rx="2" fill="#7aa6ef" opacity="0.6"/></g>
+    <circle cx="764" cy="318" r="10" fill="#3b82f6"/><text x="764" y="322" text-anchor="middle" font-size="10" font-weight="700" fill="#02122e">5</text>
+    <text x="800" y="342" text-anchor="middle" font-size="13" font-weight="600" fill="#eaf2ff">Observe</text>
+    <text x="800" y="362" text-anchor="middle" font-size="10" fill="#90a6cb">verify outcome</text>
+
+    <!-- 6 Evolve -->
+    <g filter="url(#soft)"><rect x="872" y="290" width="112" height="86" rx="13" fill="url(#glass)" stroke="#4f6fb0" stroke-opacity="0.55"/><rect x="872" y="290" width="112" height="3" rx="2" fill="#5eead4" opacity="0.6"/></g>
+    <circle cx="892" cy="310" r="10" fill="#2dd4bf"/><text x="892" y="314" text-anchor="middle" font-size="10" font-weight="700" fill="#04201c">6</text>
+    <text x="928" y="334" text-anchor="middle" font-size="13" font-weight="600" fill="#eaf2ff">Evolve</text>
+    <text x="928" y="354" text-anchor="middle" font-size="10" fill="#90a6cb">fold into trust</text>
+  </g>
+
+  <!-- earned autonomy output -->
+  <g filter="url(#glow)"><rect x="1000" y="296" width="104" height="92" rx="14" fill="url(#outGlass)"/></g>
+  <text x="1052" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#2a1604">EARNED</text>
+  <text x="1052" y="346" text-anchor="middle" font-size="12" font-weight="700" fill="#2a1604">AUTONOMY</text>
+  <text x="1052" y="366" text-anchor="middle" font-size="9" fill="#2a1604">hours back, safe,</text>
+  <text x="1052" y="377" text-anchor="middle" font-size="9" fill="#2a1604">fully audited</text>
+
+  <!-- loop back -->
+  <path d="M928 380 C 900 462, 320 470, 261 438" fill="none" stroke="#2dd4bf" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#ar)" opacity="0.8"/>
+  <text x="600" y="492" text-anchor="middle" font-size="11.5" fill="#7f97bd">the loop repeats, and the gate is recomputed from the event log on every pass</text>
+
+  <!-- governance device, in the spirit of an Agent 365 control plane -->
+  <rect x="150" y="512" width="820" height="92" rx="16" fill="url(#device)" stroke="#26406e"/>
+  <rect x="150" y="512" width="820" height="3" rx="2" fill="#3b82f6" opacity="0.5"/>
+  <text x="176" y="540" font-size="13" font-weight="700" letter-spacing="1" fill="#cfe0ff">DETERMINISTIC CORE AND GOVERNANCE</text>
+  <g>
+    <rect x="176" y="552" width="120" height="36" rx="8" fill="#0c152c" stroke="#2dd4bf" stroke-opacity="0.4"/>
+    <rect x="186" y="576" width="8" height="6" fill="#2dd4bf"/><rect x="198" y="570" width="8" height="12" fill="#2dd4bf"/><rect x="210" y="566" width="8" height="16" fill="#2dd4bf"/>
+    <text x="236" y="568" text-anchor="middle" font-size="9.5" fill="#bcd0f2">event log</text>
+    <rect x="308" y="552" width="150" height="36" rx="8" fill="#0c152c" stroke="#3b82f6" stroke-opacity="0.4"/><text x="383" y="574" text-anchor="middle" font-size="10" fill="#bcd0f2">Wilson trust math</text>
+    <rect x="470" y="552" width="150" height="36" rx="8" fill="#0c152c" stroke="#8b5cf6" stroke-opacity="0.4"/><text x="545" y="574" text-anchor="middle" font-size="10" fill="#bcd0f2">risk ceilings</text>
+    <rect x="632" y="552" width="200" height="36" rx="8" fill="#0c152c" stroke="#f59e0b" stroke-opacity="0.4"/><text x="732" y="574" text-anchor="middle" font-size="10" fill="#bcd0f2">concurrency safe memory</text>
+    <rect x="844" y="552" width="106" height="36" rx="8" fill="#0c152c" stroke="#34d399" stroke-opacity="0.4"/><text x="897" y="574" text-anchor="middle" font-size="10" fill="#bcd0f2">audit trail</text>
+  </g>
+
+  <text x="560" y="636" text-anchor="middle" font-size="11" fill="#56708f">Understudy, an MCP trust layer for Copilot Cowork and Copilot. Machine flags, human decides, machine learns, human decides again.</text>
+</svg>

@@ -1,0 +1,10 @@
+# The deterministic core, the unit tests, and both simulations run on the
+# standard library alone. The packages below are only needed for the optional
+# surfaces noted next to them.
+
+mcp>=1.2.0            # the MCP server (mcp_server.server)
+fastapi>=0.110.0     # the REST surface and dashboard (api.app)
+uvicorn>=0.28.0      # serving the REST surface
+pydantic>=2.6.0      # request models for the REST surface
+anthropic>=0.40.0    # the optional real model client (crew.model_client)
+langgraph>=0.2.0     # the durable production graph (crew.graph)
