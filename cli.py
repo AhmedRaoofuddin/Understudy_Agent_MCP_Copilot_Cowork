@@ -10,7 +10,9 @@ Subcommands:
 
 The install command is the single step that wires Understudy into a Copilot or
 Cowork style client. It writes a ready config and prints it, choosing which
-model runs each risk tier based on how heavily you intend to use it.
+model runs each risk tier based on how heavily you intend to use it, and it
+registers the Playwright MCP server alongside the gate so browser tools are there
+from the start. Pass --no-playwright to write only the Understudy server.
 """
 
 from __future__ import annotations
@@ -20,6 +22,18 @@ import json
 import os
 import sys
 from typing import Dict, List, Optional
+
+PLAYWRIGHT_PACKAGE = "@playwright/mcp@latest"
+
+
+def playwright_server_block() -> Dict[str, object]:
+    """The MCP server entry for the official Playwright MCP.
+
+    The host launches it with npx, which fetches the package on first run, so the
+    browser tools land alongside the gate without a separate install step.
+    """
+    return {"command": "npx", "args": [PLAYWRIGHT_PACKAGE]}
+
 
 USAGE_PRESETS: Dict[str, Dict[str, str]] = {
     "light": {
@@ -83,15 +97,17 @@ def cmd_install(args: argparse.Namespace) -> int:
     env = {"UNDERSTUDY_EVENT_LOG": args.event_log}
     env.update(models)
 
-    config = {
-        "mcpServers": {
-            "understudy": {
-                "command": sys.executable,
-                "args": ["-m", "mcp_server.server"],
-                "env": env,
-            }
+    servers = {
+        "understudy": {
+            "command": sys.executable,
+            "args": ["-m", "mcp_server.server"],
+            "env": env,
         }
     }
+    if args.with_playwright:
+        servers["playwright"] = playwright_server_block()
+
+    config = {"mcpServers": servers}
     text = json.dumps(config, indent=2)
     with open(args.out, "w", encoding="utf-8") as handle:
         handle.write(text + "\n")
@@ -99,8 +115,11 @@ def cmd_install(args: argparse.Namespace) -> int:
     print(text)
     print("")
     print("Wrote " + args.out)
-    print("Add this server to your Copilot, Cowork, or other MCP client config.")
+    print("Add these servers to your Copilot, Cowork, or other MCP client config.")
     print("Usage preset: " + args.usage + " (fast, standard, and deep tiers set above).")
+    if args.with_playwright:
+        print("Playwright MCP is registered too, so browser tools load next to the gate.")
+        print("The host fetches it with npx on first run. Run 'npx playwright install' once for browsers.")
     return 0
 
 
@@ -128,6 +147,19 @@ def build_parser() -> argparse.ArgumentParser:
     install.add_argument("--standard-model", default="")
     install.add_argument("--deep-model", default="")
     install.add_argument("--out", default="understudy.mcp.json")
+    install.add_argument(
+        "--with-playwright",
+        dest="with_playwright",
+        action="store_true",
+        default=True,
+        help="also register the Playwright MCP server (on by default)",
+    )
+    install.add_argument(
+        "--no-playwright",
+        dest="with_playwright",
+        action="store_false",
+        help="write only the Understudy server",
+    )
     install.set_defaults(func=cmd_install)
 
     return parser

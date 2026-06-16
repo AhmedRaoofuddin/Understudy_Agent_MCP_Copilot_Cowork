@@ -6,7 +6,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)
-![tests](https://img.shields.io/badge/tests-45%20passing-2ea44f?logo=pytest&logoColor=white)
+![tests](https://img.shields.io/badge/tests-52%20passing-2ea44f?logo=pytest&logoColor=white)
 ![core deps](https://img.shields.io/badge/core%20deps-zero-2ea44f)
 ![protocol](https://img.shields.io/badge/protocol-MCP-7c3aed)
 ![status](https://img.shields.io/badge/status-working%20prototype-f59e0b)
@@ -87,7 +87,7 @@ pip install -e ".[mcp]"
 understudy install --usage balanced
 ```
 
-`balanced` sends low risk work to the fast model, standard work to the mid model, and high risk and reasoning heavy work to the strongest model. `light` and `heavy` shift that, and you can override any tier by hand. Drop the generated block into your Copilot, Copilot Studio, or other MCP client, or run the server directly with `understudy serve-mcp`.
+`balanced` sends low risk work to the fast model, standard work to the mid model, and high risk and reasoning heavy work to the strongest model. `light` and `heavy` shift that, and you can override any tier by hand. The same command registers the Playwright MCP server next to the gate, so the browser tools are there the moment the host starts. Pass `--no-playwright` if you want only the gate. Drop the generated block into your Copilot, Copilot Studio, or other MCP client, or run the server directly with `understudy serve-mcp`.
 
 ## The MCP tools
 
@@ -103,9 +103,9 @@ There is also a REST surface and a small trust dial dashboard for an operations 
 
 ## Browser tasks through Playwright MCP
 
-A lot of real work happens in a browser, so the Watcher and Hands drive the browser through the Playwright MCP rather than reimplementing automation. The adapter in `crew/capture.py` wraps a Playwright MCP tool caller: it reads the page with `browser_snapshot` and acts with `browser_click` and `browser_type`, and the Watcher turns the recorded steps into a draft playbook for the Scribe to clean up.
+A lot of real work happens in a browser, so the Watcher and Hands drive the browser through the Playwright MCP rather than reimplementing automation. Installing Understudy registers that server for you: `understudy install` writes both the gate and the Playwright MCP into one config, and the host launches them together. On first run npx fetches the package, and `npx playwright install` adds the browsers once.
 
-The adapter is built and unit tested against an offline client, so the rest of the system runs with no browser at all. Connecting it to a live Playwright MCP is wiring, not new code: pass your MCP client's tool caller into `PlaywrightMcpClient` and the same capture loop records a real session.
+Inside Understudy the two sides meet in `crew/playwright_bridge.py`. The bridge starts the Playwright MCP, holds one session open on a background loop, and hands the Watcher a synchronous client, so the capture loop reads the page with `browser_snapshot` and acts with `browser_click` and `browser_type` against a real browser, then turns the recorded steps into a draft playbook for the Scribe. The bridge and the capture loop are unit tested with a fake session, so the rest of the system runs with no browser at all. The one thing the repo cannot bottle is the host: a machine with Node and the Playwright browsers, which is the standard requirement for Playwright MCP everywhere.
 
 ## How it sits next to your skill files
 
@@ -124,11 +124,11 @@ A skill keeps describing how to draft the campaign or code the invoice. Before i
 
 Everything that is code is built and tested. The few things that need your own tenant, keys, or users are called out as exactly that.
 
-Built and tested (45 unit tests, the proof harness, and the end to end demo all green):
+Built and tested (52 unit tests, the proof harness, and the end to end demo all green):
 
 - the deterministic core, the Understudy Loop, and the MCP server, which loads as a FastMCP server with all five tools registered
 - a CRM connector that routes writes through the gate, with a complete in memory reference adapter
-- a browser capture adapter for the Watcher, tested offline and ready to drive the Playwright MCP
+- the browser bridge that launches the Playwright MCP and drives a real browser through it, plus the install step that registers that server next to the gate, both unit tested with a fake session
 - the real model client path, unit tested through an injected client
 - a Copilot plugin packaging scaffold that assembles the Teams app bundle
 
@@ -136,7 +136,7 @@ Needs your resources, not more code:
 
 - a live Copilot Cowork tenant to install the packaged plugin and validate the manifest against the current preview schema
 - credentials to point the CRM connector at a real Salesforce, HubSpot, or Dynamics instance
-- a connected Playwright MCP to capture real browser sessions, and an API key to run the real model client
+- a host with Node and the Playwright browsers to capture real sessions, and an API key to run the real model client
 - real teams using it, to turn the simulated proofs into field data
 
 ## Run it yourself
