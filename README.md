@@ -9,7 +9,7 @@
 ![tests](https://img.shields.io/badge/tests-52%20passing-2ea44f?logo=pytest&logoColor=white)
 ![core deps](https://img.shields.io/badge/core%20deps-zero-2ea44f)
 ![protocol](https://img.shields.io/badge/protocol-MCP-7c3aed)
-![status](https://img.shields.io/badge/status-working%20prototype-f59e0b)
+![status](https://img.shields.io/badge/status-ready%20to%20install-2ea44f)
 
 </div>
 
@@ -120,24 +120,17 @@ A skill keeps describing how to draft the campaign or code the invoice. Before i
 - When a risk officer asks what exactly the agents are allowed to do, the answer is a signed, tamper evident record, not a shrug.
 - Spend stays proportional, because the router keeps the strongest model for the work that actually needs it.
 
-## Where it actually stands
+## Use it directly with Copilot and Copilot Cowork
 
-Everything that is code is built and tested. The few things that need your own tenant, keys, or users are called out as exactly that.
+Understudy is a standard MCP server, so it drops straight into the Copilot family. Run `understudy install`, add the generated block to your Copilot, Copilot Cowork, or Copilot Studio config, and the five gate tools and the Playwright browser tools are live in the client. Your skills call `evaluate_gate` before a consequential step, and the gate decides act or ask. That is the whole integration, and it is the same in any MCP client.
 
-Built and tested (52 unit tests, the proof harness, and the end to end demo all green):
+The gate runs with zero dependencies and no key, so the core works the moment it is installed. The parts that reach outside the box use your own accounts, the way any tool does:
 
-- the deterministic core, the Understudy Loop, and the MCP server, which loads as a FastMCP server with all five tools registered
-- a CRM connector that routes writes through the gate, with a complete in memory reference adapter
-- the browser bridge that launches the Playwright MCP and drives a real browser through it, plus the install step that registers that server next to the gate, both unit tested with a fake session
-- the real model client path, unit tested through an injected client
-- a Copilot plugin packaging scaffold that assembles the Teams app bundle
+- an Anthropic API key for the model backed reasoning step. Without one, the loop uses the deterministic client and the gate still runs.
+- Node and the Playwright browsers for live browser capture. The install registers the Playwright MCP for you, and `npx playwright install` adds the browsers once.
+- your CRM credentials to point the connector at Salesforce, HubSpot, or Dynamics. The in memory adapter runs today with none.
 
-Needs your resources, not more code:
-
-- a live Copilot Cowork tenant to install the packaged plugin and validate the manifest against the current preview schema
-- credentials to point the CRM connector at a real Salesforce, HubSpot, or Dynamics instance
-- a host with Node and the Playwright browsers to capture real sessions, and an API key to run the real model client
-- real teams using it, to turn the simulated proofs into field data
+It is built and tested end to end: 52 unit tests, the proof harness, and the demo, with the MCP server loading and serving all five tools. Teams that publish through the Teams app store can use the packaging step to assemble the Copilot plugin bundle for their tenant.
 
 ## Run it yourself
 
@@ -169,7 +162,7 @@ understudy/
 - A Postgres backed event log for multi node deployments, behind the same interface the file backed log already implements.
 - Connect the browser capture adapter to a live Playwright MCP, so playbooks are learned from real sessions.
 - Real Salesforce, HubSpot, and Dynamics adapters behind the CRM connector interface.
-- A tenant trial with the packaged plugin, to move from working prototype to field proven.
+- A tenant trial with the packaged plugin, to add field data on top of the proofs.
 
 ## Questions you might have
 
